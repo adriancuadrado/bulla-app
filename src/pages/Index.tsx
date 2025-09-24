@@ -1,13 +1,43 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { useState } from "react";
+import { DashboardLayout } from "@/components/dashboard/DashboardLayout";
+import { RoleSelector } from "@/components/dashboard/RoleSelector";
+import { OrganizerDashboard } from "@/components/organizer/OrganizerDashboard";
+import { CoordinatorDashboard } from "@/components/coordinator/CoordinatorDashboard";
+import { AttendeeDashboard } from "@/components/attendee/AttendeeDashboard";
+import { FamilyDashboard } from "@/components/family/FamilyDashboard";
+
+type UserRole = "organizer" | "coordinator" | "attendee" | "family" | null;
 
 const Index = () => {
+  const [selectedRole, setSelectedRole] = useState<UserRole>(null);
+
+  const handleRoleSelect = (role: UserRole) => {
+    setSelectedRole(role);
+  };
+
+  if (!selectedRole) {
+    return <RoleSelector onRoleSelect={handleRoleSelect} />;
+  }
+
+  const renderDashboard = () => {
+    switch (selectedRole) {
+      case "organizer":
+        return <OrganizerDashboard />;
+      case "coordinator":
+        return <CoordinatorDashboard />;
+      case "attendee":
+        return <AttendeeDashboard />;
+      case "family":
+        return <FamilyDashboard />;
+      default:
+        return <div>Selecciona un rol</div>;
+    }
+  };
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
-    </div>
+    <DashboardLayout userRole={selectedRole}>
+      {renderDashboard()}
+    </DashboardLayout>
   );
 };
 
