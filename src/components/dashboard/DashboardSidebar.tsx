@@ -1,6 +1,7 @@
 import { Shield, Calendar, Users, AlertTriangle, Settings, Home, FileText, Radio, HeartHandshake } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
+import logo from '@/assets/bulla-app-logo.jpeg';
 
 interface DashboardSidebarProps {
   userRole: "organizer" | "coordinator" | "attendee" | "family";
@@ -43,9 +44,9 @@ export const DashboardSidebar = ({ userRole }: DashboardSidebarProps) => {
     <div className="w-64 bg-gradient-security text-white flex flex-col">
       <div className="p-6">
         <div className="flex items-center gap-3">
-          <Shield className="h-8 w-8" />
+            <img src={logo} className="h-12 w-12 text-primary" />
           <div>
-            <h1 className="text-xl font-bold">SecureEvent</h1>
+            <h1 className="text-xl font-bold">Bulla App</h1>
             <p className="text-sm opacity-80 capitalize">{userRole}</p>
           </div>
         </div>

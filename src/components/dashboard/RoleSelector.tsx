@@ -1,6 +1,7 @@
 import { Shield, Radio, User, Heart } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import logo from '@/assets/bulla-app-logo.jpeg';
 
 interface RoleSelectorProps {
   onRoleSelect: (role: "organizer" | "coordinator" | "attendee" | "family") => void;
@@ -43,8 +44,8 @@ export const RoleSelector = ({ onRoleSelect }: RoleSelectorProps) => {
       <div className="max-w-4xl w-full">
         <div className="text-center mb-8">
           <div className="flex items-center justify-center gap-3 mb-4">
-            <Shield className="h-12 w-12 text-primary" />
-            <h1 className="text-4xl font-bold text-foreground">SecureEvent</h1>
+            <img src={logo} className="h-12 w-12 text-primary" />
+            <h1 className="text-4xl font-bold text-foreground">Bulla App</h1>
           </div>
           <p className="text-xl text-muted-foreground">
             Gestión integral de seguridad en eventos masivos
