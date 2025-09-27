@@ -7,7 +7,7 @@ interface RoleSelectorProps {
   onRoleSelect: (role: "organizer" | "coordinator" | "attendee" | "family") => void;
 }
 
-const roles = [
+export const roles = [
   {
     id: "organizer" as const,
     title: "Organizador de Eventos",

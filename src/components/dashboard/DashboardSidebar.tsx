@@ -2,6 +2,7 @@ import { Shield, Calendar, Users, AlertTriangle, Settings, Home, FileText, Radio
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import logo from '@/assets/bulla-app-logo.jpeg';
+import { roles } from "./RoleSelector";
 
 interface DashboardSidebarProps {
   userRole: "organizer" | "coordinator" | "attendee" | "family";
@@ -47,7 +48,7 @@ export const DashboardSidebar = ({ userRole }: DashboardSidebarProps) => {
             <img src={logo} className="h-12 w-12 text-primary" />
           <div>
             <h1 className="text-xl font-bold">Bulla App</h1>
-            <p className="text-sm opacity-80 capitalize">{userRole}</p>
+            <p className="text-sm opacity-80 capitalize">{roles.find(r => r.id === userRole).title}</p>
           </div>
         </div>
       </div>
