@@ -1,7 +1,8 @@
-import { Bell, User, Search } from "lucide-react";
+import { Bell, User, Search, ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
+import { Link } from "react-router-dom";
 
 interface DashboardHeaderProps {
   userRole: "organizer" | "coordinator" | "attendee" | "family";
@@ -19,6 +20,11 @@ export const DashboardHeader = ({ userRole }: DashboardHeaderProps) => {
     <header className="bg-card border-b border-border px-6 py-4">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-4">
+          <Link to="/">
+            <Button variant="ghost" size="icon">
+              <ArrowLeft className="h-5 w-5" />
+            </Button>
+          </Link>
           <div>
             <h2 className="text-xl font-semibold text-foreground">
               Panel de Control
