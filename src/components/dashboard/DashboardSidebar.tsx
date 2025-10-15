@@ -1,6 +1,7 @@
 import { Shield, Calendar, Users, AlertTriangle, Settings, Home, FileText, Radio, HeartHandshake } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 import logo from '@/assets/bulla-app-logo.jpeg';
 import { roles } from "./RoleSelector";
 
@@ -44,13 +45,13 @@ export const DashboardSidebar = ({ userRole }: DashboardSidebarProps) => {
   return (
     <div className="w-64 bg-gradient-security text-white flex flex-col">
       <div className="p-6">
-        <div className="flex items-center gap-3">
+        <Link to="/" className="flex items-center gap-3 hover:opacity-80 transition-smooth">
             <img src={logo} className="h-12 w-12 text-primary" />
           <div>
             <h1 className="text-xl font-bold">Bulla App</h1>
             <p className="text-sm opacity-80 capitalize">{roles.find(r => r.id === userRole).title}</p>
           </div>
-        </div>
+        </Link>
       </div>
       
       <nav className="flex-1 px-4">
